@@ -1,6 +1,6 @@
 <template>
 <div>
-  <h1>{{ new Date().getFullYear() }}年放送のアニメ一覧</h1>
+  <h1>{{ today.getFullYear() }}年{{ cours[today.getMonth()/3] }}放送のアニメ一覧</h1>
   <ol>
     <li v-for="item in posts" v-bind:key="item.id"><anime-card :info="item" /></li>
   </ol>
@@ -17,10 +17,13 @@ export default Vue.extend({
   },
   data(){
     return{
+      cours: ["冬", "春", "夏", "秋"],
+      today: new Date()
     }
   },
   async asyncData({ app }){
-    const url = "https://api.moemoe.tokyo/anime/v1/master/2022/1"
+    const d = new Date();
+    const url = `https://api.moemoe.tokyo/anime/v1/master/${d.getFullYear()}/${(d.getMonth() / 3) + 1}`;
     const posts: Anime[] = await app.$axios.$get(url);
     return { posts }
   },
