@@ -52,10 +52,15 @@ export default Vue.extend({
   methods: {
     incrementCount(): void {
       ++this.count;
+      this.changeCount();
     },
     decrementCount(): void {
       if(this.count == 0) return;
       --this.count;
+      this.changeCount();
+    },
+    changeCount(): void {
+      this.$emit('changeCount', this.count);
     }
   }
 })
