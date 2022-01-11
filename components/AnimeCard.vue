@@ -1,35 +1,47 @@
 <template>
   <v-card
-    class="mx-auto"
-    max-width="344"
+    min-height="300"
   >
-    <v-card-title>
+    <v-card-title class="layout justify-center">
       {{ info.title }}
     </v-card-title>
 
-    <v-btn
-      class="mx-2"
-      fab
-      color="indigo"
-      @click="decrementCount()"
-    >
-      <v-icon dark>
-        mdi-minus
-      </v-icon>
-    </v-btn>
-    {{ count }}
-    <v-btn
-      class="mx-2"
-      fab
-      color="indigo"
-      absolute
-      right
-      @click="incrementCount()"
-    >
-      <v-icon dark>
-        mdi-plus
-      </v-icon>
-    </v-btn>
+    <v-card-text>
+      <v-row
+        class="mb-4"
+        justify="space-between"
+      >
+        <v-col class="text-left">
+          <span
+            class="text-h2 font-weight-light"
+            v-text="count"
+          ></span>
+          <span class="subheading font-weight-light mr-1">枚</span>
+        </v-col>
+      </v-row>
+
+      <v-slider
+        v-model="count"
+        min="0"
+        max="50"
+      >
+        <template v-slot:prepend>
+          <v-icon
+            @click="decrement"
+          >
+            mdi-minus
+          </v-icon>
+        </template>
+
+        <template v-slot:append>
+          <v-icon
+            @click="increment"
+          >
+            mdi-plus
+          </v-icon>
+        </template>
+      </v-slider>
+    </v-card-text>
   </v-card>
 </template>
 
@@ -50,11 +62,11 @@ export default Vue.extend({
     }
   },
   methods: {
-    incrementCount(): void {
+    increment(): void {
       ++this.count;
       this.changeCount();
     },
-    decrementCount(): void {
+    decrement(): void {
       if(this.count == 0) return;
       --this.count;
       this.changeCount();

@@ -1,9 +1,13 @@
 <template>
 <div>
   <h1>{{ today.getFullYear() }}年{{ cours[today.getMonth()/3] }}放送のアニメ一覧</h1>
-  <ol>
-    <li v-for="item in posts" v-bind:key="item.id"><anime-card :info="item" v-on:changeCount="handlChange"/></li>
-  </ol>
+  <v-container>
+    <v-row>
+      <v-col v-for="item in posts" v-bind:key="item.id" cols="12" sm="6" md="6" lg="4" xl="4">
+        <anime-card :info="item" v-on:changeCount="handlChange"/>
+      </v-col>
+    </v-row>
+  </v-container>
 </div>
 </template>
 
@@ -23,7 +27,6 @@ export default Vue.extend({
   },
   methods: {
     handlChange(count: number) {
-      console.log(count);
     }
   },
   async asyncData({ app }){
