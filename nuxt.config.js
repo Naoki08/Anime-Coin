@@ -17,11 +17,10 @@ export default {
       { hid: 'og:type', property: 'og:type', content: 'website' },
       { hid: 'og:title', property: 'og:title', content: 'アニメコイン' },
       { hid: 'og:description', property: 'og:description', content: '†魂を賭けられないやつに勝ちは無い†' },
-      { hid: 'og:image', property: 'og:image', content: './thumne.jpg' },
       { name: 'twitter:card', content: 'summary'},
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/coin.png' }
+      { rel: 'icon', type: 'image/x-icon', href: '/s/coin.png' }
     ]
   },
 
