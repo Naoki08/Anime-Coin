@@ -7,12 +7,12 @@
       {{ title }}
     </v-card-title>
 
-<v-layout justify-center>
+<v-layout>
     <v-card-text >
       <v-row>
         <v-col>
           <span
-            class="text-h2"
+            class="text-h4"
             v-text="numberOfCoin"
           ></span>
           <span class="subheading mr-1">枚</span>

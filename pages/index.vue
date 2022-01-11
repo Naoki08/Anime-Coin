@@ -30,6 +30,7 @@
       <v-col v-for="item in res" v-bind:key="item.id" cols="6" lg="4" xl="4">
         <anime-panel :title="item.title" :numberOfCoin="coins.get(item.id)"  />
       </v-col>
+      <h2>※やり直す場合はリロードしてください</h2>
     </v-row>
   </v-container>
 </div>
