@@ -2,37 +2,58 @@
 <div>
   <h1 v-if="!isResult">{{ today.getFullYear() }}年{{ cours[today.getMonth()/3] }}放送のアニメ一覧</h1>
   <h1 v-else>今期のアニメコイン</h1>
+  <v-btn
+    rounded
+    outlined
+    color="primary"
+    @click="viewResult()"
+    class="mb-3"
+    v-if="!isResult"
+  >
+    結果を表示する
+  </v-btn>
+  <v-btn
+    rounded
+    outlined
+    color="danger"
+    @click="viewBet()"
+    class="mb-3"
+    v-else
+  >
+    アニメコインを賭け直す
+  </v-btn>
   <v-container>
-    <v-btn
-      rounded
-      outlined
-      color="primary"
-      @click="viewResult()"
-      class="mb-3"
-      v-show="!isResult"
-    >
-      結果を表示する
-    </v-btn>
     <v-row v-if="!isResult">
       <v-col v-for="item in posts" v-bind:key="item.id" cols="12" sm="6" md="6" lg="4" xl="4">
         <anime-coin-panel :info="item" v-on:changeCount="handlChange"/>
       </v-col>
-      <v-btn
-        rounded
-        outlined
-        color="primary"
-        @click="viewResult()"
-      >
-        結果を表示する
-      </v-btn>
     </v-row>
     <v-row v-else>
       <v-col v-for="item in res" v-bind:key="item.id" cols="6" lg="4" xl="4">
         <anime-panel :title="item.title" :numberOfCoin="coins.get(item.id)"  />
       </v-col>
-      <h2>※やり直す場合はリロードしてください</h2>
     </v-row>
   </v-container>
+  <v-btn
+    rounded
+    outlined
+    color="primary"
+    @click="viewResult()"
+    class="mb-3"
+    v-if="!isResult"
+  >
+    結果を表示する
+  </v-btn>
+  <v-btn
+    rounded
+    outlined
+    color="danger"
+    @click="viewBet()"
+    class="mb-3"
+    v-else
+  >
+    アニメコインを賭け直す
+  </v-btn>
 </div>
 </template>
 
@@ -59,7 +80,7 @@ export default Vue.extend({
     handlChange(count: number[]) {
       this.coins.set(count[0], count[1]);
     },
-    viewResult(): void{
+    viewResult(): void {
       this.res = [];
       this.posts.map((v) => {
         if(this.coins.get(v.id) !== 0) {
@@ -75,6 +96,12 @@ export default Vue.extend({
         return;
       }
       this.isResult = true;
+    },
+    viewBet(): void {
+      this.posts.map((x: Anime) => {
+        this.coins.set(x.id, 0);
+      })
+      this.isResult = false;
     }
   },
   created(): void {
