@@ -25,6 +25,7 @@
         v-model="count"
         min="0"
         max="50"
+        @change="changeCount()"
       >
         <template v-slot:prepend>
           <v-icon
