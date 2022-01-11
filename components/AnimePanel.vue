@@ -1,9 +1,9 @@
 <template>
   <v-card
     color="indigo lighten-5"
-    min-height="200"
+    min-height="120"
   >
-    <v-card-title class="text-h2 layout justify-center">
+    <v-card-title class="layout justify-center">
       {{ title }}
     </v-card-title>
 
@@ -36,10 +36,6 @@ export default Vue.extend({
       type: Number,
       required: true
     },
-    url: {
-      type: String,
-      required: true
-    }
   },
   data() {
     return {

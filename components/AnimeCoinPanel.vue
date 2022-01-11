@@ -1,7 +1,7 @@
 <template>
   <v-card
     color="indigo lighten-5"
-    min-height="300"
+    min-height="240"
   >
     <v-card-title class="layout justify-center">
       {{ info.title }}
