@@ -1,5 +1,6 @@
 <template>
   <v-card
+    color="indigo lighten-5"
     min-height="300"
   >
     <v-card-title class="layout justify-center">
