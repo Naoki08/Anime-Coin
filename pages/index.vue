@@ -8,6 +8,9 @@
       </v-col>
     </v-row>
   </v-container>
+  <button @click="twitterShare()">
+    Twitter
+  </button>
 </div>
 </template>
 
@@ -25,13 +28,36 @@ export default Vue.extend({
       posts: [] as Anime[],
       cours: ["冬", "春", "夏", "秋"],
       coins: new Map<number, number>(),
-      today: new Date()
+      today: new Date(),
+      title: '今期のアニメコイン',
     }
   },
   methods: {
     handlChange(count: number[]) {
       this.coins.set(count[0], count[1]);
-    }
+    },
+    twitterShare() {
+      const baseUrl = 'https://twitter.com/intent/tweet?'
+      const text = ['text', this.title + '\n']
+      const url = ['url', window.location.href + 'share?']
+
+      let ok = false;
+      this.coins.forEach((v, k) => {
+        if(v === 0) return;
+        ok = true;
+        url[1] += `${k}=${v}&`
+      })
+
+      if(!ok) {
+        window.alert("アニメコインを賭けてください");
+        return;
+      }
+
+      url[1] = url[1].slice(0, -1);
+      const parameter = new URLSearchParams([text, url]).toString()
+      const shareUrl = `${baseUrl}${parameter}`
+      window.open(shareUrl, 'twitter', 'top=200,left=300,width=600,height=400')
+    },
   },
   created(): void {
     this.$data.posts.map((x: Anime) => {
