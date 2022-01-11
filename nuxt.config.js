@@ -12,7 +12,13 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { name: 'format-detection', content: 'telephone=no' },
+      { hid: 'og:site_name', property: 'og:site_name', content: 'アニメコイン' },
+      { hid: 'og:type', property: 'og:type', content: 'website' },
+      { hid: 'og:title', property: 'og:title', content: 'アニメコイン' },
+      { hid: 'og:description', property: 'og:description', content: '†魂を賭けられないやつに勝ちは無い†' },
+      { hid: 'og:image', property: 'og:image', content: './thumne.jpg' },
+      { name: 'twitter:card', content: 'summary'},
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/coin.png' }
