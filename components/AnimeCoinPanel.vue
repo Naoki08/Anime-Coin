@@ -74,7 +74,7 @@ export default Vue.extend({
       this.changeCount();
     },
     changeCount(): void {
-      this.$emit('changeCount', this.count);
+      this.$emit('changeCount', [this.info.id, this.count]);
     }
   }
 })
