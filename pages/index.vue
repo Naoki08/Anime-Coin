@@ -1,6 +1,6 @@
 <template>
 <div>
-  <h1 v-if="!isResult">{{ today.getFullYear() }}年{{ cours[today.getMonth()/3] }}放送のアニメ一覧</h1>
+  <h1 v-if="!isResult">{{ year }}年{{ cours[cour] }}放送のアニメ一覧</h1>
   <h1 v-else>今期のアニメコイン</h1>
   <v-btn
     rounded
@@ -76,11 +76,19 @@ export default Vue.extend({
       isResult: false,
     }
   },
+  computed: {
+    year(): number {
+      return this.today.getFullYear();
+    },
+    cour(): number {
+      return Math.floor(this.today.getMonth()/3);
+    }
+  },
   methods: {
     handlChange(count: number[]) {
       this.coins.set(count[0], count[1]);
     },
-    viewResult(): void {
+    viewResult(): void { //結果画面の表示
       this.res = [];
       this.posts.map((v) => {
         if(this.coins.get(v.id) !== 0) {
@@ -97,21 +105,23 @@ export default Vue.extend({
       }
       this.isResult = true;
     },
-    viewBet(): void {
+    viewBet(): void { //賭ける画面の表示
       this.posts.map((x: Anime) => {
         this.coins.set(x.id, 0);
       })
       this.isResult = false;
     }
   },
-  created(): void {
+  created(): void { //コインのカウントを初期化
     this.$data.posts.map((x: Anime) => {
       this.$data.coins.set(x.id, 0);
     })
   },
-  async asyncData({ app }){
+  async asyncData({ app }){ //APIから今期のアニメデータを取得
     const d = new Date();
-    const url = `https://api.moemoe.tokyo/anime/v1/master/${d.getFullYear()}/${(d.getMonth() / 3) + 1}`;
+    const year = d.getFullYear();
+    const cour = Math.floor(d.getMonth()/3) + 1;
+    const url = `https://api.moemoe.tokyo/anime/v1/master/${year}/${cour}`;
     const posts: Anime[] = await app.$axios.$get(url);
     return { posts }
   },
