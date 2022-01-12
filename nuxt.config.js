@@ -16,9 +16,10 @@ export default {
       { hid: 'og:site_name', property: 'og:site_name', content: 'アニメコイン' },
       { hid: 'og:type', property: 'og:type', content: 'website' },
       { hid: 'og:title', property: 'og:title', content: 'アニメコイン' },
+      { hid: 'og:image', property: 'og:image', content: '/s/coin_b.jpg' },
       { hid: 'og:description', property: 'og:description', content: '†魂を賭けられないやつに勝ちは無い†' },
       { name: 'twitter:card', content: 'summary_large_image'},
-      { name: 'twitter:creator', content: '@Twitter' }
+      { name: 'twitter:creator', content: '@Shift_Petta' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/s/coin.png' }
