@@ -17,7 +17,8 @@ export default {
       { hid: 'og:type', property: 'og:type', content: 'website' },
       { hid: 'og:title', property: 'og:title', content: 'アニメコイン' },
       { hid: 'og:description', property: 'og:description', content: '†魂を賭けられないやつに勝ちは無い†' },
-      { name: 'twitter:card', content: 'summary'},
+      { name: 'twitter:card', content: 'summary_large_image'},
+      { name: 'twitter:creator', content: '@Twitter' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/s/coin.png' }
