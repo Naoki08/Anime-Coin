@@ -1,0 +1,24 @@
+<template>
+  <div>
+    <h1>アニメコインについて</h1>
+    <p>
+      作者：
+      <a
+        href="https://twitter.com/Shift_Petta"
+        target="_blank"
+      >
+        Shift_Petta
+      </a>
+    </p>
+    <p>
+      このアプリは
+      <a
+        href="https://github.com/Project-ShangriLa/sora-playframework-scala"
+        target="_blank"
+      >Shangrila Anime API</a> を使用して作成されています。
+    </p>
+    <p>
+      随時機能更新をしていこうと思うので提案や意見のある場合はTwitterまでお願いします。
+    </p>
+  </div>
+</template>
