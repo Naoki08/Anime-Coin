@@ -6,6 +6,7 @@
     >
       <v-toolbar-title v-text="title" />
       <v-spacer />
+      <v-btn href nuxt text to="/about">詳細</v-btn>
     </v-app-bar>
     <v-main>
       <v-container>
@@ -22,7 +23,7 @@
 export default {
   data () {
     return {
-      title: 'アニメコイン'
+      title: '今期に賭けるコイン'
     }
   }
 }

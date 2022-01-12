@@ -1,7 +1,6 @@
 <template>
 <div>
   <h1 v-if="!isResult">{{ year }}年{{ cours[cour] }}放送のアニメ一覧</h1>
-  <h1 v-else>今期のアニメコイン</h1>
   <v-btn
     rounded
     outlined
@@ -20,7 +19,7 @@
     class="mb-3"
     v-else
   >
-    アニメコインを賭け直す
+    コインを賭け直す
   </v-btn>
   <v-container>
     <v-row v-if="!isResult">
@@ -52,7 +51,7 @@
     class="mb-3"
     v-else
   >
-    アニメコインを賭け直す
+    コインを賭け直す
   </v-btn>
 </div>
 </template>
@@ -96,7 +95,7 @@ export default Vue.extend({
         }
       })
       if(this.res.length === 0) {
-        window.alert("アニメコインを賭けて下さい");
+        window.alert("コインを賭けて下さい");
         return;
       }
       else if(this.res.length > 10) {

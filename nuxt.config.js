@@ -3,8 +3,8 @@ import colors from 'vuetify/es5/util/colors'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    titleTemplate: 'anime-coin',
-    title: 'anime-coin',
+    titleTemplate: 'this-session-anime',
+    title: 'this-session-anime',
     htmlAttrs: {
       lang: 'ja'
     },
@@ -13,9 +13,9 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
-      { hid: 'og:site_name', property: 'og:site_name', content: 'アニメコイン' },
+      { hid: 'og:site_name', property: 'og:site_name', content: '今期に賭けるコイン' },
       { hid: 'og:type', property: 'og:type', content: 'website' },
-      { hid: 'og:title', property: 'og:title', content: 'アニメコイン' },
+      { hid: 'og:title', property: 'og:title', content: '今期に賭けるコイン' },
       { hid: 'og:image', property: 'og:image', content: '/s/coin_b.jpg' },
       { hid: 'og:description', property: 'og:description', content: '†魂を賭けられないやつに勝ちは無い†' },
       { name: 'twitter:card', content: 'summary_large_image'},
