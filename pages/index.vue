@@ -28,7 +28,8 @@
       </v-col>
     </v-row>
     <v-row v-else>
-      <v-col v-for="item in res" v-bind:key="item.id" cols="6" lg="4" xl="4">
+      <v-col cols="12"><h2>あなたは合計{{ sumCoins }}枚のコインを賭けました。</h2></v-col>
+      <v-col v-for="item in res" v-bind:key="item.id" cols="12" lg="4" xl="4">
         <anime-panel :title="item.title" :numberOfCoin="coins.get(item.id)"  />
       </v-col>
     </v-row>
@@ -71,6 +72,7 @@ export default Vue.extend({
       res: [] as Anime[],
       cours: ["冬", "春", "夏", "秋"],
       coins: new Map<number, number>(),
+      sumCoins: 0,
       today: new Date(),
       isResult: false,
     }
@@ -92,6 +94,7 @@ export default Vue.extend({
       this.posts.map((v) => {
         if(this.coins.get(v.id) !== 0) {
           this.res.push(v);
+          this.sumCoins += this.coins.get(v.id) as number;
         }
       })
       if(this.res.length === 0) {
@@ -108,6 +111,7 @@ export default Vue.extend({
       this.posts.map((x: Anime) => {
         this.coins.set(x.id, 0);
       })
+      this.sumCoins = 0;
       this.isResult = false;
     }
   },

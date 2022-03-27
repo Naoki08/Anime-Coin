@@ -24,7 +24,7 @@
       <v-slider
         v-model="count"
         min="0"
-        max="50"
+        max="100"
         @change="changeCount()"
       >
         <template v-slot:prepend>
