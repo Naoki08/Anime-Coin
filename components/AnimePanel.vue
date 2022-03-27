@@ -1,25 +1,22 @@
 <template>
   <v-card
-    color="indigo lighten-5"
-    min-height="120"
+    outlined
+    color="teal lighten-4"
   >
-    <v-card-title class="layout justify-center">
-      {{ title }}
-    </v-card-title>
-
-<v-layout>
-    <v-card-text >
-      <v-row>
-        <v-col>
-          <span
-            class="text-h4"
-            v-text="numberOfCoin"
-          ></span>
-          <span class="subheading mr-1">枚</span>
-        </v-col>
-      </v-row>
-    </v-card-text>
-</v-layout>
+    <v-layout>
+        <v-card-text>
+          <v-row>
+            <v-col cols="9">{{ title }}</v-col>
+            <v-col cols="3">
+              <span
+                class="text-h6"
+                v-text="numberOfCoin"
+              ></span>
+              <span>枚</span>
+            </v-col>
+          </v-row>
+        </v-card-text>
+    </v-layout>
   </v-card>
 </template>
 
