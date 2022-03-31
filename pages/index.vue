@@ -130,7 +130,8 @@ export default Vue.extend({
     const d = new Date();
     const year = d.getFullYear();
     const cour = Math.floor(d.getMonth()/3) + 1;
-    const url = `https://api.moemoe.tokyo/anime/v1/master/${year}/${cour}`;
+    var now = Date.now();
+    const url = `https://api.moemoe.tokyo/anime/v1/master/${year}/${cour}?cachebust=${now}`;
     const posts: Anime[] = await app.$axios.$get(url);
     return { posts }
   },
