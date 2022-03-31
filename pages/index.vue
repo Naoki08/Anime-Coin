@@ -120,6 +120,12 @@ export default Vue.extend({
       this.$data.coins.set(x.id, 0);
     })
   },
+  mounted(): void {
+    if(this.$data.posts.length === 0)
+    {
+      window.alert("更新するまで待ってね！");
+    }
+  },
   async asyncData({ app }){ //APIから今期のアニメデータを取得
     const d = new Date();
     const year = d.getFullYear();
